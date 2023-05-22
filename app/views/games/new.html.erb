@@ -1,0 +1,23 @@
+<div class = containers>
+
+  <h1>New game</h1>
+
+  <ul class="letter-list">
+    <% @letters.each do |letter| %>
+      <li class="letter-item">
+        <div class="square">
+          <%= letter.capitalize %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="mb-3">
+    <form action="/score" method="post" data-turbo="false" class="form-label">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input class="form-control" type="text" name="suggestion" placeholder="What is the longest word you can find?">
+      <input type="submit" value="Play" class="btn btn-primary">
+    </form>
+  </div>
+
+</div>
